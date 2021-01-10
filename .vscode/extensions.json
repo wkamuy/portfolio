@@ -9,7 +9,9 @@
     "stylelint.vscode-stylelint",
     "VisualStudioExptTeam.vscodeintellicode",
     "vscode-icons-team.vscode-icons",
-    "wix.vscode-import-cost"
+    "wix.vscode-import-cost",
+    "ionutvmi.path-autocomplete",
+    "Gruntfuggly.todo-tree"
   ],
   "unwantedRecommendations": []
 }
