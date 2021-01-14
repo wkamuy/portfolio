@@ -13,35 +13,43 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
-      // backgroundColor: 'transparent',
-      backgroundColor: '#212121',
-    },
-    toolBar: {
-      color: 'white',
+      backgroundColor: 'transparent',
+      boxShadow: 'none',
+      position: 'static',
     },
     iconButton: {
       marginRight: theme.spacing(2),
     },
+    menuButtonBox: {
+      marginLeft: '20px',
+    },
     menuButton: {
       marginRight: theme.spacing(1),
       textTransform: 'none',
+      color: 'inherit',
     },
     menuIcon: {
       color: 'white',
     },
-    menuBox: {},
     title: {
       fontFamily: ['Montserrat', 'sans-serif'].join(','),
+    },
+    snsIconBox: {
+      marginLeft: 'auto',
     },
   }),
 );
 
-const MenueBar: FC = () => {
+type MenueBarProps = {
+  title: string;
+};
+
+const MenueBar: FC<MenueBarProps> = ({ title }) => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" className={classes.appBar}>
-      <Toolbar className={classes.toolBar}>
+    <AppBar className={classes.appBar}>
+      <Toolbar>
         <Box
           display={{
             xs: 'block',
@@ -51,20 +59,15 @@ const MenueBar: FC = () => {
             xl: 'none',
           }}
         >
-          <IconButton
-            className={classes.iconButton}
-            color="inherit"
-            aria-label="menu"
-          >
+          <IconButton className={classes.iconButton} aria-label="menu">
             <MenuIcon className={classes.menuIcon} />
           </IconButton>
         </Box>
+        {/* TODO: ADD Link to title */}
         <Typography variant="h6" className={classes.title}>
-          {/* FIXME:  name = &apos;Takuma Sasaki&apos; */}
-          TAKUMA.PAGES
+          {title}.PAGES
         </Typography>
         <Box
-          marginLeft="20px"
           display={{
             xs: 'none',
             sm: 'none',
@@ -72,22 +75,17 @@ const MenueBar: FC = () => {
             lg: 'block',
             xl: 'block',
           }}
+          className={classes.menuButtonBox}
         >
-          <Button color="inherit" className={classes.menuButton}>
-            About
-          </Button>
-          <Button color="inherit" className={classes.menuButton}>
-            Blog
-          </Button>
-          <Button color="inherit" className={classes.menuButton}>
-            Contributions
-          </Button>
+          <Button className={classes.menuButton}>About</Button>
+          <Button className={classes.menuButton}>Blog</Button>
+          <Button className={classes.menuButton}>Contributions</Button>
         </Box>
-        <Box marginLeft="auto">
-          <IconButton color="inherit">
+        <Box className={classes.snsIconBox}>
+          <IconButton>
             <TwitterIcon />
           </IconButton>
-          <IconButton color="inherit">
+          <IconButton>
             <GitHubIcon />
           </IconButton>
         </Box>
