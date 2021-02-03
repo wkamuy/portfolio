@@ -80,7 +80,7 @@ const MenuBar: FC<MenuBarProps> = ({
       onKeyDown={close}
     >
       <List>
-        <LinkRouter className={classes.link} to="/">
+        <LinkRouter className={classes.link} to="/portfolio">
           <ListItem button>
             <ListItemIcon>
               <PermIdentityIcon />
@@ -139,7 +139,7 @@ const MenuBar: FC<MenuBarProps> = ({
             className={classes.menuButtonBox}
           >
             <Button className={classes.menuButton}>
-              <LinkRouter className={classes.link} to="/">
+              <LinkRouter className={classes.link} to="/portfolio">
                 About
               </LinkRouter>
             </Button>

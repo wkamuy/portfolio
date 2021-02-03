@@ -10,10 +10,10 @@ import HomePage from 'components/pages/HomePage';
 const App: FC = () => (
   <Router>
     <Switch>
-      <Route exact path="/">
+      <Route exact path="/portfolio">
         <HomePage />
       </Route>
-      <Redirect to="/" />;
+      <Redirect to="/portfolio" />;
     </Switch>
   </Router>
 );

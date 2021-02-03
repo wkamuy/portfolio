@@ -43,7 +43,9 @@
     "lint:conflict": "eslint-config-prettier 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:style": "stylelint 'src/**/*.{css,less,sass,scss}'",
     "lint:style:fix": "stylelint --fix 'src/**/*.{css,less,sass,scss}'",
-    "postinstall": "typesync"
+    "postinstall": "typesync",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +66,7 @@
     ]
   },
   "devDependencies": {
+    "@types/gh-pages": "^3.0.0",
     "@types/lodash": "^4.14.166",
     "@types/prettier": "^2.1.6",
     "@types/react-helmet": "^6.1.0",
@@ -82,6 +85,7 @@
     "eslint-plugin-prefer-arrow": "^1.2.2",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "4.2.0",
+    "gh-pages": "^3.1.0",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
@@ -107,5 +111,6 @@
     "src/**/*.{gql,graphql,json}": [
       "prettier --write --loglevel=warn"
     ]
-  }
+  },
+  "homepage": "https://wkamuy.github.io/portfolio/"
 }
