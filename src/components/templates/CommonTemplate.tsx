@@ -1,11 +1,10 @@
 import { FC } from 'react';
 import Box from '@material-ui/core/Box';
-// import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Copyright from '../molecules/Copyright';
-import MenueBar from '../molecules/MenueBar';
+import MenuBar from '../../containers/molecules/MenuBar';
 
 const theme = createMuiTheme({
   palette: {
@@ -16,18 +15,15 @@ const theme = createMuiTheme({
   },
 });
 
-// const useStyles = makeStyles((theme: Theme) =>
-//   createStyles({
-//     root: {
-//       display: 'flex',
-//     },
-//   }),
-// );
+type CommonTemplateProps = {
+  children?: React.ReactNode;
+};
 
-const CommonTemplate: FC = () => (
+const CommonTemplate: FC<CommonTemplateProps> = ({ children }) => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <MenueBar title="WKAMUY" />
+    <MenuBar title="WKAMUY" />
+    {children}
     <Box>
       <Copyright authorName="wkamuy" />
     </Box>
