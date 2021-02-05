@@ -18,6 +18,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -88,6 +89,7 @@ const MenuBar: FC<MenuBarProps> = ({
             <ListItemText primary="About" />
           </ListItem>
         </LinkRouter>
+        <Divider variant="middle" />
         <Link
           className={classes.link}
           href="https://wkamuy.hatenablog.com/"
@@ -100,6 +102,7 @@ const MenuBar: FC<MenuBarProps> = ({
             <ListItemText primary="Blog" />
           </ListItem>
         </Link>
+        <Divider variant="middle" />
       </List>
     </div>
   );
