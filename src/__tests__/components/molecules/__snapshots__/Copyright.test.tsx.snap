@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Copyright /> should render correctly 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+>
+  © 
+  2021
+   
+  wkamuy
+  .
+</p>
+`;

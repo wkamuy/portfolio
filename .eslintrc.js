@@ -11,6 +11,7 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:jest/recommended',
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/react',
@@ -32,6 +33,7 @@ module.exports = {
     'prefer-arrow',
     'react',
     'react-hooks',
+    'jest',
   ],
   root: true,
   rules: {
