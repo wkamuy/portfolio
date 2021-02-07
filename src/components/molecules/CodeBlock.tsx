@@ -3,10 +3,10 @@ import { FC } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import materialDark from 'react-syntax-highlighter/dist/cjs/styles/prism/material-dark';
 
-interface P {
+type P = {
   value: string;
   language?: string;
-}
+};
 
 const CodeBlock: FC<P> = ({ value, language }) => (
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

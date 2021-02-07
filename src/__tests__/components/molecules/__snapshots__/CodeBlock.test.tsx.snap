@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CodeBlock /> sould render correctly 1`] = `
+<pre
+  style={
+    Object {
+      "MozHyphens": "none",
+      "MozTabSize": "4",
+      "OTabSize": "4",
+      "WebkitHyphens": "none",
+      "background": "#2f2f2f",
+      "color": "#eee",
+      "fontFamily": "Roboto Mono, monospace",
+      "fontSize": "1em",
+      "hyphens": "none",
+      "lineHeight": "1.5em",
+      "margin": "0.5em 0",
+      "msHyphens": "none",
+      "overflow": "auto",
+      "padding": "1.25em 1em",
+      "position": "relative",
+      "tabSize": "4",
+      "textAlign": "left",
+      "whiteSpace": "pre",
+      "wordBreak": "normal",
+      "wordSpacing": "normal",
+      "wordWrap": "normal",
+    }
+  }
+>
+  <code
+    style={
+      Object {
+        "MozHyphens": "none",
+        "MozTabSize": "4",
+        "OTabSize": "4",
+        "WebkitHyphens": "none",
+        "background": "#2f2f2f",
+        "color": "#eee",
+        "fontFamily": "Roboto Mono, monospace",
+        "fontSize": "1em",
+        "hyphens": "none",
+        "lineHeight": "1.5em",
+        "msHyphens": "none",
+        "tabSize": "4",
+        "textAlign": "left",
+        "whiteSpace": "pre",
+        "wordBreak": "normal",
+        "wordSpacing": "normal",
+        "wordWrap": "normal",
+      }
+    }
+  >
+    <span
+      style={Object {}}
+    >
+      test
+    </span>
+  </code>
+</pre>
+`;

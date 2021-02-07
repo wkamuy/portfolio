@@ -9,7 +9,10 @@ describe('<Copyright />', () => {
       .spyOn(global, 'Date')
       .mockImplementation(() => (mockDate as unknown) as string);
 
-    const tree = renderer.create(<Copyright authorName="wkamuy" />).toJSON();
+    const authorName = 'wkamuy';
+    const tree = renderer
+      .create(<Copyright authorName={authorName} />)
+      .toJSON();
     expect(tree).toMatchSnapshot();
 
     spy.mockRestore();
