@@ -6,14 +6,14 @@ import Fade from '@material-ui/core/Fade';
 import Typography from '@material-ui/core/Typography';
 import CommonTemplate from '../templates/CommonTemplate';
 import CodeBlock from '../molecules/CodeBlock';
-import aboutMe from '../../Data/aboutMe';
+import aboutMe from '../../static/aboutMe';
 
 const HomePage: FC = () => (
   <CommonTemplate>
     <Grid container justify="center">
       <Grid item xs={11}>
         <Typography variant="h6">About Me</Typography>
-        <Fade in timeout={1500}>
+        <Fade in timeout={1000}>
           <Paper>
             <ReactMarkDown source={aboutMe} renderers={{ code: CodeBlock }} />
           </Paper>

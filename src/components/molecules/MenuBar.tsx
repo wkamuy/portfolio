@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import CreateIcon from '@material-ui/icons/Create';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
@@ -90,6 +91,15 @@ const MenuBar: FC<MenuBarProps> = ({
           </ListItem>
         </LinkRouter>
         <Divider variant="middle" />
+        <LinkRouter className={classes.link} to="/works">
+          <ListItem button>
+            <ListItemIcon>
+              <CreateIcon />
+            </ListItemIcon>
+            <ListItemText primary="Works" />
+          </ListItem>
+        </LinkRouter>
+        <Divider variant="middle" />
         <Link
           className={classes.link}
           href="https://wkamuy.hatenablog.com/"
@@ -128,9 +138,11 @@ const MenuBar: FC<MenuBarProps> = ({
               <MenuIcon className={classes.menuIcon} />
             </IconButton>
           </Box>
-          <Typography variant="h6" className={classes.title}>
-            {title}.PAGES
-          </Typography>
+          <LinkRouter className={classes.link} to="/portfolio">
+            <Typography variant="h6" className={classes.title}>
+              {title}.PAGES
+            </Typography>
+          </LinkRouter>
           <Box
             display={{
               xs: 'none',
@@ -144,6 +156,11 @@ const MenuBar: FC<MenuBarProps> = ({
             <Button className={classes.menuButton}>
               <LinkRouter className={classes.link} to="/portfolio">
                 About
+              </LinkRouter>
+            </Button>
+            <Button className={classes.menuButton}>
+              <LinkRouter className={classes.link} to="/works">
+                Works
               </LinkRouter>
             </Button>
             <Button className={classes.menuButton}>
