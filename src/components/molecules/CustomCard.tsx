@@ -11,13 +11,29 @@ import Chip from '@material-ui/core/Chip';
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      maxWidth: 230,
+      width: 200,
+      marginTop: 20,
+      '&:hover': {
+        boxShadow: '0 14px 16px rgba(0,0,0,3)',
+      },
     },
     media: {
-      height: 100,
+      height: 97,
     },
-    contents: {
-      height: 150,
+    cardContents: {
+      display: '-webkit-box',
+      height: 97,
+      overflow: 'hidden',
+      WebkitLineClamp: 4,
+      WebkitBoxOrient: 'vertical',
+    },
+    cardActions: {
+      display: 'block',
+      maxHeight: 65,
+      overflow: 'hidden',
+    },
+    chip: {
+      margin: 2,
     },
   }),
 );
@@ -33,14 +49,41 @@ const MediaCard: FC = () => {
           image="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/984188/6388c9f9-296c-4f7d-cc7a-4281fb9508c8.png"
           title="Contemplative Reptile"
         />
-        <CardContent className={classes.contents}>
+        <CardContent className={classes.cardContents}>
           <Typography gutterBottom variant="body2" component="h6">
-            英語弱者がTeamsで英語ミーティングするときに簡単かつ最低限できること
+            英語弱者がTeamsで英語ミーティングするときに簡単かつ最低限できること英語弱者がTeamsで英語ミーティングするときに簡単かつ最低限できること英語弱者がTeamsで英語ミーティングするときに簡単かつ最低限できること英語弱者がTeamsで英語ミーティングするときに簡単かつ最低限できること
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Chip label="aaaa" />
+      <CardActions className={classes.cardActions}>
+        <Chip
+          clickable
+          className={classes.chip}
+          variant="outlined"
+          size="small"
+          label="英語"
+        />
+        <Chip
+          clickable
+          className={classes.chip}
+          variant="outlined"
+          size="small"
+          label="英語"
+        />
+        <Chip
+          clickable
+          className={classes.chip}
+          variant="outlined"
+          size="small"
+          label="英語"
+        />
+        <Chip
+          clickable
+          className={classes.chip}
+          variant="outlined"
+          size="small"
+          label="プログラミング"
+        />
       </CardActions>
     </Card>
   );
