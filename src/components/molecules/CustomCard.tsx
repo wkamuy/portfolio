@@ -58,28 +58,24 @@ const MediaCard: FC = () => {
       </CardActionArea>
       <CardActions className={classes.cardActions}>
         <Chip
-          clickable
           className={classes.chip}
           variant="outlined"
           size="small"
           label="英語"
         />
         <Chip
-          clickable
           className={classes.chip}
           variant="outlined"
           size="small"
           label="英語"
         />
         <Chip
-          clickable
           className={classes.chip}
           variant="outlined"
           size="small"
           label="英語"
         />
         <Chip
-          clickable
           className={classes.chip}
           variant="outlined"
           size="small"
