@@ -10,8 +10,8 @@ const WorksPage: FC = () => {
 
   const customCard = grid1.map(() => (
     <Grid container justify="flex-start">
-      {grid2.map(() => (
-        <Grid item xs={2}>
+      {grid2.map((val, idx) => (
+        <Grid item xs={2} key={idx.toString()}>
           <CustomCard />
         </Grid>
       ))}
