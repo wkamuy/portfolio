@@ -8,11 +8,13 @@ const WorksPage: FC = () => {
   const grid1 = Array.from({ length: 3 }, (v: undefined, i: number) => i);
   const grid2 = Array.from({ length: 6 }, (v: undefined, i: number) => i);
 
-  const customCard = grid1.map(() => (
-    <Grid container justify="flex-start">
+  const customCard = grid1.map((val1, idx1) => (
+    <Grid container alignItems="center" justify="center" key={idx1.toString()}>
       {grid2.map((val, idx) => (
-        <Grid item xs={2} key={idx.toString()}>
-          <CustomCard />
+        <Grid item xs={2} key={`val${idx.toString()}`}>
+          <Grid container justify="center" alignItems="center">
+            <CustomCard />
+          </Grid>
         </Grid>
       ))}
     </Grid>

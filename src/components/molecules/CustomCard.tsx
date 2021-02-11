@@ -11,8 +11,9 @@ import Chip from '@material-ui/core/Chip';
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
+      marginTop: 10,
+      marginBottom: 10,
       width: 200,
-      marginTop: 20,
       '&:hover': {
         boxShadow: '0 14px 16px rgba(0,0,0,3)',
       },
