@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-// import CreateIcon from '@material-ui/icons/Create';
+import CreateIcon from '@material-ui/icons/Create';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
@@ -91,14 +91,14 @@ const MenuBar: FC<MenuBarProps> = ({
           </ListItem>
         </LinkRouter>
         <Divider variant="middle" />
-        {/* <LinkRouter className={classes.link} to="/works">
+        <LinkRouter className={classes.link} to="/works">
           <ListItem button>
             <ListItemIcon>
               <CreateIcon />
             </ListItemIcon>
             <ListItemText primary="Works" />
           </ListItem>
-        </LinkRouter> */}
+        </LinkRouter>
         <Divider variant="middle" />
         <Link
           className={classes.link}
@@ -158,11 +158,11 @@ const MenuBar: FC<MenuBarProps> = ({
                 About
               </LinkRouter>
             </Button>
-            {/* <Button className={classes.menuButton}>
+            <Button className={classes.menuButton}>
               <LinkRouter className={classes.link} to="/works">
                 Works
               </LinkRouter>
-            </Button> */}
+            </Button>
             <Button className={classes.menuButton}>
               <Link
                 className={classes.link}
