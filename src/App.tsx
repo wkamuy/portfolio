@@ -14,10 +14,10 @@ const App: FC = () => (
       <Route exact path="/portfolio">
         <HomePage />
       </Route>
-      <Route exact path="/works">
+      <Route exact path="/portfolio/works">
         <WorksPage />
       </Route>
-      <Redirect to="/portfolio" />;
+      <Redirect to="/portfolio/" />;
     </Switch>
   </Router>
 );

@@ -91,7 +91,7 @@ const MenuBar: FC<MenuBarProps> = ({
           </ListItem>
         </LinkRouter>
         <Divider variant="middle" />
-        <LinkRouter className={classes.link} to="/works">
+        <LinkRouter className={classes.link} to="/portfolio/works">
           <ListItem button>
             <ListItemIcon>
               <CreateIcon />
@@ -159,7 +159,7 @@ const MenuBar: FC<MenuBarProps> = ({
               </LinkRouter>
             </Button>
             <Button className={classes.menuButton}>
-              <LinkRouter className={classes.link} to="/works">
+              <LinkRouter className={classes.link} to="/portfolio/works">
                 Works
               </LinkRouter>
             </Button>
