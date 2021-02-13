@@ -7,6 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
+import Link from '@material-ui/core/Link';
+import { Divider } from '@material-ui/core';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -23,67 +25,75 @@ const useStyles = makeStyles(() =>
     },
     cardContents: {
       display: '-webkit-box',
-      height: 97,
+      height: 79,
       overflow: 'hidden',
-      WebkitLineClamp: 4,
+      WebkitLineClamp: 3,
       WebkitBoxOrient: 'vertical',
     },
     cardActions: {
       display: 'block',
-      maxHeight: 65,
+      height: 65,
       overflow: 'hidden',
     },
     chip: {
       margin: 2,
     },
+    link: {
+      textDecoration: 'none',
+      color: 'white',
+    },
   }),
 );
 
-const MediaCard: FC = () => {
+type CustomCardProps = {
+  cardMediaImage: string;
+  cardMediaTitle: string;
+  cardContent: string;
+  cardLink: string;
+  chipLabel: string[];
+};
+
+const CustomCard: FC<CustomCardProps> = ({
+  cardMediaImage,
+  cardMediaTitle,
+  cardContent,
+  cardLink,
+  chipLabel,
+}) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/984188/6388c9f9-296c-4f7d-cc7a-4281fb9508c8.png"
-          title="Contemplative Reptile"
-        />
-        <CardContent className={classes.cardContents}>
-          <Typography gutterBottom variant="body2" component="h6">
-            英語弱者がTeamsで英語ミーティングするときに簡単かつ最低限できること英語弱者がTeamsで英語ミーティングするときに簡単かつ最低限できること英語弱者がTeamsで英語ミーティングするときに簡単かつ最低限できること英語弱者がTeamsで英語ミーティングするときに簡単かつ最低限できること
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions className={classes.cardActions}>
-        <Chip
-          className={classes.chip}
-          variant="outlined"
-          size="small"
-          label="英語"
-        />
-        <Chip
-          className={classes.chip}
-          variant="outlined"
-          size="small"
-          label="英語"
-        />
-        <Chip
-          className={classes.chip}
-          variant="outlined"
-          size="small"
-          label="英語"
-        />
-        <Chip
-          className={classes.chip}
-          variant="outlined"
-          size="small"
-          label="プログラミング"
-        />
-      </CardActions>
-    </Card>
+    <Link className={classes.link} href={cardLink} underline="none">
+      <Card className={classes.root}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={
+              cardMediaImage || `${process.env.PUBLIC_URL}/img/works_image.png`
+            }
+            title={cardMediaTitle}
+          />
+          <CardContent className={classes.cardContents}>
+            <Typography gutterBottom variant="body2" component="h6">
+              {cardContent}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <Divider />
+        <CardActions className={classes.cardActions}>
+          {chipLabel.map((val, idx) => (
+            <Chip
+              key={val + idx.toString()}
+              className={classes.chip}
+              variant="outlined"
+              size="small"
+              label={val}
+            />
+          ))}
+        </CardActions>
+      </Card>
+    </Link>
   );
 };
 
-export default MediaCard;
+export default CustomCard;
