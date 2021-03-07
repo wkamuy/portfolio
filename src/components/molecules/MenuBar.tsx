@@ -6,6 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import CreateIcon from '@material-ui/icons/Create';
@@ -20,13 +21,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
+import Slide from '@material-ui/core/Slide';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
       backgroundColor: 'transparent',
       boxShadow: 'none',
-      position: 'static',
     },
     iconButton: {
       marginRight: theme.spacing(2),
@@ -61,8 +62,19 @@ const useStyles = makeStyles((theme: Theme) =>
 type MenuBarProps = {
   title?: string;
   isOpen?: boolean;
+  children?: React.ReactElement;
   open?: (event: React.KeyboardEvent | React.MouseEvent) => void;
   close?: (event: React.KeyboardEvent | React.MouseEvent) => void;
+};
+
+const HideOnScroll: FC<MenuBarProps> = ({ children }) => {
+  const trigger = useScrollTrigger();
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
 };
 
 const MenuBar: FC<MenuBarProps> = ({
@@ -119,82 +131,84 @@ const MenuBar: FC<MenuBarProps> = ({
 
   return (
     <>
-      <AppBar className={classes.appBar}>
-        <Toolbar>
-          <Box
-            display={{
-              xs: 'block',
-              sm: 'block',
-              md: 'none',
-              lg: 'none',
-              xl: 'none',
-            }}
-          >
-            <IconButton
-              className={classes.iconButton}
-              aria-label="menu"
-              onClick={open}
+      <HideOnScroll>
+        <AppBar className={classes.appBar}>
+          <Toolbar>
+            <Box
+              display={{
+                xs: 'block',
+                sm: 'block',
+                md: 'none',
+                lg: 'none',
+                xl: 'none',
+              }}
             >
-              <MenuIcon className={classes.menuIcon} />
-            </IconButton>
-          </Box>
-          <LinkRouter className={classes.link} to="/portfolio">
-            <Typography variant="h6" className={classes.title}>
-              {title}.PAGES
-            </Typography>
-          </LinkRouter>
-          <Box
-            display={{
-              xs: 'none',
-              sm: 'none',
-              md: 'block',
-              lg: 'block',
-              xl: 'block',
-            }}
-            className={classes.menuButtonBox}
-          >
-            <Button className={classes.menuButton}>
-              <LinkRouter className={classes.link} to="/portfolio">
-                About
-              </LinkRouter>
-            </Button>
-            <Button className={classes.menuButton}>
-              <LinkRouter className={classes.link} to="/portfolio/works">
-                Works
-              </LinkRouter>
-            </Button>
-            <Button className={classes.menuButton}>
+              <IconButton
+                className={classes.iconButton}
+                aria-label="menu"
+                onClick={open}
+              >
+                <MenuIcon className={classes.menuIcon} />
+              </IconButton>
+            </Box>
+            <LinkRouter className={classes.link} to="/portfolio">
+              <Typography variant="h6" className={classes.title}>
+                {title}.PAGES
+              </Typography>
+            </LinkRouter>
+            <Box
+              display={{
+                xs: 'none',
+                sm: 'none',
+                md: 'block',
+                lg: 'block',
+                xl: 'block',
+              }}
+              className={classes.menuButtonBox}
+            >
+              <Button className={classes.menuButton}>
+                <LinkRouter className={classes.link} to="/portfolio">
+                  About
+                </LinkRouter>
+              </Button>
+              <Button className={classes.menuButton}>
+                <LinkRouter className={classes.link} to="/portfolio/works">
+                  Works
+                </LinkRouter>
+              </Button>
+              <Button className={classes.menuButton}>
+                <Link
+                  className={classes.link}
+                  href="https://wkamuy.hatenablog.com/"
+                  underline="none"
+                >
+                  Blog
+                </Link>
+              </Button>
+            </Box>
+            <Box className={classes.snsIconBox}>
               <Link
                 className={classes.link}
-                href="https://wkamuy.hatenablog.com/"
+                href="https://twitter.com/wkamuy1"
                 underline="none"
               >
-                Blog
+                <IconButton>
+                  <TwitterIcon />
+                </IconButton>
               </Link>
-            </Button>
-          </Box>
-          <Box className={classes.snsIconBox}>
-            <Link
-              className={classes.link}
-              href="https://twitter.com/wkamuy1"
-              underline="none"
-            >
-              <IconButton>
-                <TwitterIcon />
-              </IconButton>
-            </Link>
-            <Link
-              className={classes.link}
-              href="https://github.com/wkamuy"
-              underline="none"
-            >
-              <IconButton>
-                <GitHubIcon />
-              </IconButton>
-            </Link>
-          </Box>
-        </Toolbar>
-      </AppBar>
+              <Link
+                className={classes.link}
+                href="https://github.com/wkamuy"
+                underline="none"
+              >
+                <IconButton>
+                  <GitHubIcon />
+                </IconButton>
+              </Link>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
       <Drawer anchor="left" open={isOpen} onClose={close}>
         {list()}
       </Drawer>
