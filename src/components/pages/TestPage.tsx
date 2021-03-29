@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { createStyles, makeStyles } from '@material-ui/core';
+import { createStyles, makeStyles, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import CommonTemplate from 'components/templates/CommonTemplate';
@@ -9,7 +9,10 @@ const useStyles = makeStyles(() =>
   createStyles({
     bottomSnow: {
       opacity: 0,
-      animation: '$slideUp 3s forwards',
+      width: '100%',
+      position: 'absolute',
+      bottom: 0,
+      animation: '$slideUp 3s ease-out forwards',
     },
     '@keyframes slideUp': {
       from: {
@@ -73,6 +76,21 @@ const useStyles = makeStyles(() =>
         opacity: 1,
       },
     },
+    titleMain: {
+      fontFamily: ['Lato', 'sans-serif'].join(','),
+      fontWeight: 'bold',
+      fontSize: '4vw',
+    },
+    title: {
+      fontFamily: ['Lato', 'sans-serif'].join(','),
+      fontWeight: 'bold',
+    },
+    border: {
+      border: '3px solid #42c4ffff',
+      borderRadius: '10px',
+      marginTop: '10px',
+      marginBottom: '10px',
+    },
   }),
 );
 
@@ -86,8 +104,28 @@ const TestPage: FC = () => {
           <ScrollPage>
             <Grid container justify="center" style={{ height: '100%' }}>
               <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                <Box display="flex" justifyContent="center">
-                  <Box style={{ background: 'red' }}>aa</Box>
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  style={{ height: '100%' }}
+                >
+                  <Box
+                    style={{
+                      width: '45%',
+                      marginBottom: '30px',
+                    }}
+                  >
+                    <Typography variant="h2" className={classes.titleMain}>
+                      WKAMUY. <br />
+                      PAGES
+                    </Typography>
+                    <Box className={classes.border} />
+                    <Typography variant="h6" className={classes.title}>
+                      Programer / <br />
+                      System architect
+                    </Typography>
+                  </Box>
                 </Box>
               </Grid>
               <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
@@ -183,22 +221,16 @@ const TestPage: FC = () => {
                 </Box>
               </Grid>
             </Grid>
-            <Box>
-              <img
-                src={`${process.env.PUBLIC_URL}/img/portfolio_design_bottom_1.min.svg`}
-                alt="test"
-                width="100%"
-                style={{ position: 'absolute', bottom: 0 }}
-                className={classes.bottomSnow}
-              />
-              <img
-                src={`${process.env.PUBLIC_URL}/img/portfolio_design_bottom_2.min.svg`}
-                alt="test"
-                width="100%"
-                style={{ position: 'absolute', bottom: 0 }}
-                className={classes.bottomSnow}
-              />
-            </Box>
+            <img
+              src={`${process.env.PUBLIC_URL}/img/home_bottom_dummy.min.svg`}
+              alt="home_bottom_dummy"
+              className={classes.bottomSnow}
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/img/home_bottom.min.svg`}
+              alt="home_bottom"
+              className={classes.bottomSnow}
+            />
           </ScrollPage>
           <ScrollPage style={{ background: 'yellow' }} />
           <ScrollPage style={{ background: 'blue' }} />
